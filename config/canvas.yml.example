@@ -1,0 +1,3 @@
+domain: http://canvas.instructure.com
+access_token: # your canvas access token here.
+account_id: # the id of your canvas account

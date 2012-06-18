@@ -1,0 +1,29 @@
+<h2>Pagination</h2>
+<p>This page requests users in an account, and then paginates through them using
+  the links provided by Canvas in the <code>Link</code> header.</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Login ID</th>
+    </tr>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user['id'] %></td>
+          <td><%= user['name'] %></td>
+          <td><%= user['login_id'] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </thead>
+</table>
+
+<div class="pagination pagination-left">
+  <ul>
+    <li <% if @pages[:prev].nil? %> class="disabled" <% end %>><a href="/pagination<%= @pages[:prev] %>">Previous</a></li>
+    <li <% if @pages[:next].nil? %> class="disabled" <% end %>><a href="/pagination<%= @pages[:next] %>">Next</a></li>
+  </ul>
+</div>
